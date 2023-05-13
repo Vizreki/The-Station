@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="#">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css"></link>
+    <link href='https://fonts.googleapis.com/css?family=MedievalSharp' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet"> 
+    <title>The Station</title>
+</head>
+<body style="background-color: rgb(25, 24, 24);">
+    <p id="title">The Station</p>
+    <div class="container">
+        <p id="cd"></p>
+        <p id="fl"></p>
+        <p id="hb"></p>
+        <p id="gd"></p>
+        <p id="sh"></p>
+          </div>
+    <div class="container2">
+        <p id="po"></p>
+        <p id="nh"></p>
+        <p id="vi"></p>
+        <p id="pt"></p>
+    </div>
+    <p id="status"></p>
+    <hr id="line">
+    <p id="staff">Staff</p>
+        <div class="container3">
+        <p id="ad"></p>
+        <p id="sc"></p>
+        <p id="md"></p>
+        </div>
+        <div class="container4">
+        <p id="lg"></p>
+        <p id="td"></p>
+        <p id="mt"></p>
+        </div>
+
+    <div class="button-container">
+        <div class="dropdown">
+          <button class="dropbtn">Assign New Staff ></button>
+          <div class="dropdown-content">
+            <a href="#" onclick="AsgnAdm()">> Admin</a>
+            <a href="#" onclick="AsgnSec()">> Security</a>
+            <a href="#" onclick="AsgnMed()">> Medical</a>
+            <a href="#" onclick="AsgnLog()">> Logistics</a>
+            <a href="#" onclick="AsgnTra()">> Traders</a>
+            <a href="#" onclick="AsgnMnt()">> Maint.</a>
+          </div>
+        </div>
+      
+        <div class="buttons">
+          <button onclick="  ">Build Hab</button>
+          <button onclick="  ">Build Port</button>
+          <button onclick="  ">Do Something</button>
+        </div>
+      </div>
+
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+      <div class="button-container2">
+        <div class="dropdown2">
+          <button class="dropbtn2">Rename Station</button>
+          <div class="dropdown-content2">
+      <input type="text" id="myInput" autocomplete="off">
+      <button id="renamebutton" onclick="Rename()">Change</button>
+      </div>
+           
+      
+</body>
+</html>

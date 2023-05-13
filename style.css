@@ -1,0 +1,226 @@
+#title {
+    color: #3251b8;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 58px;
+    padding: 0;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 2px 2px rgb(183, 183, 183);
+}
+
+#status {
+    color: #ffffff;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-size: 16px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+input[type="text"] {
+    margin: 7px;
+    width: 75px;
+    border: 2px solid rgb(83, 141, 166);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.container {
+    color: #ffffff;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-size: 25px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.container p {
+    margin-right: 40px;
+    margin-bottom: 10px;
+}
+
+.container2 {
+    color: #ffffff;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-size: 25px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.container2 p {
+    margin-right: 40px;
+    margin-bottom: 10px;
+}
+
+.container3 {
+    color: #ffffff;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.container3 p {
+    margin-right: 40px;
+    margin-bottom: 10px;
+}
+
+.container4 {
+    color: #ffffff;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-size: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.container4 p {
+    margin-right: 40px;
+    margin-bottom: 10px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.buttons>button {
+    background-color: #396db0;
+    border: #396db0;
+    margin-top: 20px;
+    margin-left: 10px;
+    font-size: 17px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.buttons>button:hover {
+    background-color: #5d84b8;
+}
+
+.dropbtn {
+    background-color: #396db0;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-right: 40px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #5d84b8;
+    min-width: 120px;
+    z-index: 1;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 12px;
+    text-decoration: black;
+    display: block;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #709ad1
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+    background-color: #4885d4;
+}
+
+#staff {
+    color: #3251b8;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 30px;
+    padding: 0;
+    font-family: 'Orbitron', sans-serif;
+    text-shadow: 2px 2px rgb(151, 151, 151);
+}
+
+#line {
+    width: 97%;
+}
+
+.button-container2 {
+    display: flex;
+    justify-content: flex-start;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.dropdown2 {
+    position: relative;
+    display: inline-block;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.dropbtn2 {
+    background-color: #2962ac;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.dropdown-content2 {
+    display: none;
+    background-color: #345b8a;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.dropdown-content2 a {
+    color: black;
+    text-decoration: black;
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content2 a:hover {
+    background-color: #2a61a8;
+    display: block;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown2:hover .dropdown-content2 {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown2:hover .dropbtn2 {
+    background-color: #4885d4;
+}
