@@ -1,5 +1,6 @@
-the more workers, the faster the increment of supplies. 
-at first, only a few workers will increment the basics. more will increase speed and even more will increase adv supplies and even 
-    MORE will increase the speed of those.
-can assign newcomers or workers to militia or soldiers. 
-militia vs soldier - 
+win state with message (# of credits?)
+loss state with message
+
+status messages for crime, sickness or maintenance, plus logic for this
+
+ticks for New Hires plus all the auto changing variables

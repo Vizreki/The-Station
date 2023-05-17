@@ -101,11 +101,33 @@ input[type="text"] {
     margin-left: 10px;
     font-size: 17px;
     font-family: 'Orbitron', sans-serif;
+    position: relative;
 }
 
 .buttons>button:hover {
     background-color: #5d84b8;
 }
+
+.buttons>button::after {
+    content: attr(data-tooltip);
+    background-color: #000;
+    color: #fff;
+    font-size: 14px;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    white-space: nowrap;
+}
+
+.buttons>button:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
 
 .dropbtn {
     background-color: #396db0;
@@ -161,7 +183,7 @@ input[type="text"] {
 }
 
 #staff {
-    color: #3251b8;
+    color: #005ac1;
     margin-top: 0;
     margin-bottom: 0;
     font-size: 30px;
@@ -223,4 +245,10 @@ input[type="text"] {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown2:hover .dropbtn2 {
     background-color: #4885d4;
+}
+
+#note {
+    color: #ffffff;
+    font-family: 'Orbitron', sans-serif;
+    margin-left: 40px;
 }

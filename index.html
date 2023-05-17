@@ -26,11 +26,11 @@
         <p id="po"></p>
         <p id="nh"></p>
         <p id="vi"></p>
-        <p id="pt"></p>
+        <p id="dk"></p>
     </div>
     <p id="status"></p>
     <hr id="line">
-    <p id="staff">Staff</p>
+    <p id="staff">Staff:</p>
         <div class="container3">
         <p id="ad"></p>
         <p id="sc"></p>
@@ -38,9 +38,11 @@
         </div>
         <div class="container4">
         <p id="lg"></p>
-        <p id="td"></p>
+        <p id="mr"></p>
         <p id="mt"></p>
         </div>
+
+        <p id="staff">Actions:</p>
 
     <div class="button-container">
         <div class="dropdown">
@@ -50,16 +52,18 @@
             <a href="#" onclick="AsgnSec()">> Security</a>
             <a href="#" onclick="AsgnMed()">> Medical</a>
             <a href="#" onclick="AsgnLog()">> Logistics</a>
-            <a href="#" onclick="AsgnTra()">> Traders</a>
+            <a href="#" onclick="AsgnMer()">> Merchants</a>
             <a href="#" onclick="AsgnMnt()">> Maint.</a>
           </div>
         </div>
-      
+              
         <div class="buttons">
-          <button onclick="  ">Build Hab</button>
-          <button onclick="  ">Build Port</button>
-          <button onclick="  ">Do Something</button>
-        </div>
+          <button onclick="BuildHab()" data-tooltip="15k per Hab">Build Hab</button>
+          <button onclick="BuildDock()" data-tooltip="30k per Dock">Build Dock</button>
+          <button id="fuel" onclick="BuyFuel()" data-tooltip="1k per 100 Fuel">Buy Fuel</button>
+          <button id="ship" onclick="BuyShip()" data-tooltip="50k per Ship">Buy Ship</button>
+      </div>
+      
       </div>
 
       <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
@@ -71,7 +75,10 @@
       <input type="text" id="myInput" autocomplete="off">
       <button id="renamebutton" onclick="Rename()">Change</button>
       </div>
+      </div>
+      <br><br>
+
+<p id="note"><i>Refresh page to start a new game. For further guidance, see the browser console.</i></p>
            
-      
 </body>
 </html>
