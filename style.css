@@ -112,7 +112,7 @@ input[type="text"] {
     content: attr(data-tooltip);
     background-color: #000;
     color: #fff;
-    font-size: 14px;
+    font-size: 16px;
     position: absolute;
     top: calc(100% + 5px);
     left: 50%;

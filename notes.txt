@@ -3,4 +3,4 @@ loss state with message
 
 status messages for crime, sickness or maintenance, plus logic for this
 
-ticks for New Hires plus all the auto changing variables
+check statuses every 30 seconds or so so buying new things or adding people doesn't immediately change status and it feels gradual
