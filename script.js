@@ -1,10 +1,10 @@
-let cred = 3000000;
+let cred = 5000;
 let fuel = 100;
 let habs = 1;
 let goods = 50;
-let ships = 1;
+let ships = 0;
 let pop = 1;
-let newh = 3;
+let newh = 0;
 let vis = 0;
 let docks = 1;
 let adm = 1;
@@ -14,12 +14,12 @@ let log = 0;
 let mer = 0;
 let mnt = 0;
 
-let hiringInterval = 10000;
+let hiringInterval = 20000;
 
 let tstaff = 1;
 let maxCap = habs * 6;
 
-let glam = 3;
+let glam = 1;
 
 let crime = 0;
 let sick = 0;
@@ -38,18 +38,18 @@ window.onload = function() {
   document.getElementById("status").innerHTML = "Status: ";
   DisplayNums();
   Intervals();
-  setTimeout(VisGen, 5000);
+  setTimeout(VisGen, 10000);
   setTimeout(VisLeave, 10000);
-  setTimeout(GoodsEcon, 1000);
-  setTimeout(FuelEcon, 1000);
-  setTimeout(AddNewh, 10000)
-  setTimeout(CrimeChecker, 1000)
+  setTimeout(GoodsEcon, 10000);
+  setTimeout(FuelEcon, 10000);
+  setTimeout(AddNewh, 5000)
+  setTimeout(CrimeChecker, 30000)
 }
 
 function Intervals(){
   setInterval(DisplayNums, 100)
-  setInterval(PayRoll, 10000)
-  setInterval(StaffWork, 1000)
+  setInterval(PayRoll, 29000)
+  setInterval(StaffWork, 10000)
 }
 
 //UI Updater
@@ -117,18 +117,13 @@ function VisLeave() {
       const randomIncrement = Math.floor(Math.random() * 30) + 30;
       vis -= randomIncrement;
     } else if (glam < 0) {vis = Math.floor(Math.random() * 14) + 1;}
-
-
-    
-  
   const randomInterval = Math.floor(Math.random() * (19000 - 11000 + 1)) + 11000;
   setTimeout(VisLeave, randomInterval);
 }
 
 function StaffWork(){
-//Logistics
-goods += log * 3;
-goods += mer * 10;
+goods += log * 10;
+goods += mer * 50;
 }
 
 function GoodsEcon(){
@@ -138,7 +133,7 @@ function GoodsEcon(){
   cred += randCred;
   goods -= Math.floor(randCred * .5);}
   if (goods < 0) {goods = 0};
-  setTimeout(GoodsEcon, 1000);
+  setTimeout(GoodsEcon, 10000);
 }
 
 function FuelEcon(){
@@ -149,7 +144,7 @@ function FuelEcon(){
   fuel -= Math.floor(fuelAmount * 10);
   cred += Math.floor(fuelAmount * 250)}}
   if (fuel < 0) {fuel = 0;}
-  setTimeout(FuelEcon, 1000);
+  setTimeout(FuelEcon, 10000);
 }
 
 
@@ -157,24 +152,11 @@ function FuelEcon(){
 function AddNewh(){if (newh < 6 && tstaff < maxCap)newh++;setTimeout(AddNewh, hiringInterval)}
 
 //Staff Assignment Buttons
-function AsgnAdm(){if (newh !== 0 && tstaff < maxCap){adm++;newh--;
-  hiringInterval -= 2000;
-  crime--;damage--;}}
-
-
-
-function AsgnSec(){if (newh !== 0 && tstaff < maxCap){sec++;newh--;glam++;crime -= 3;}}
-
-
+function AsgnAdm(){if (newh !== 0 && tstaff < maxCap){adm++;newh--;hiringInterval -= 2000;crime--;damage--;}}
+function AsgnSec(){if (newh !== 0 && tstaff < maxCap){sec++;newh--;crime -= 3;}}
 function AsgnMed(){if (newh !== 0 && tstaff < maxCap){med++;newh--;sick -= 3;glam++}}
-
-
 function AsgnLog(){if (newh !== 0 && tstaff < maxCap){log++;newh--;damage--;}}
-
-
 function AsgnMer(){if (newh !== 0 && tstaff < maxCap){mer++;newh--;glam++}}
-
-
 function AsgnMnt(){if (newh !== 0 && tstaff < maxCap){mnt++;newh--;damage -= 3;}}
 
 function BuildHab(){if (cred >= 15000){{habs++;cred-= 15000;glam++;sick++}}}
