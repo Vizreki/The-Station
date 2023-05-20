@@ -14,10 +14,11 @@ let log = 0;
 let mer = 0;
 let mnt = 0;
 
-let hiringInterval = 20000;
+let hiringInterval = 60000;
 
 let tstaff = 1;
 let maxCap = habs * 6;
+let maxVis = docks * 400;
 
 let glam = 1;
 
@@ -44,6 +45,7 @@ window.onload = function() {
   setTimeout(FuelEcon, 10000);
   setTimeout(AddNewh, 5000)
   setTimeout(CrimeChecker, 30000)
+  music();
 }
 
 function Intervals(){
@@ -55,16 +57,19 @@ function Intervals(){
 //UI Updater
 function DisplayNums(){
     let commaCred = cred.toLocaleString();
+    let commaFuel = fuel.toLocaleString();
+    let commaVis = vis.toLocaleString();
     document.getElementById("staff").innerHTML = "Staff: " + tstaff;
+    document.getElementById("rating").innerHTML = "Station Rating: " + glam;
     document.getElementById("cd").innerHTML = "Credits ᖬ: " + commaCred;
-    document.getElementById("fl").innerHTML = "Fuel: " + fuel;
+    document.getElementById("fl").innerHTML = "Fuel: " + commaFuel;
     document.getElementById("hb").innerHTML = "Habs: " + habs;
     document.getElementById("gd").innerHTML = "Goods: " + goods;
     document.getElementById("sh").innerHTML = "Ships: " + ships;
     document.getElementById("dk").innerHTML = "Docks: " + docks;
     document.getElementById("po").innerHTML = "Population: " + pop;
     document.getElementById("nh").innerHTML = "Applicants: " + newh;
-    document.getElementById("vi").innerHTML = "Visitors: " + vis;
+    document.getElementById("vi").innerHTML = "Visitors: " + commaVis;
     document.getElementById("ad").innerHTML = "Admin: " + adm;
     document.getElementById("sc").innerHTML = "Security: " + sec;
     document.getElementById("md").innerHTML = "Medical: " + med;
@@ -81,25 +86,23 @@ function DisplayNums(){
 function Updater(){
   tstaff = adm + sec + med + log + mer + mnt;maxCap = habs * 6;if (vis < 0) {vis = 0}}
 
-function PayRoll(){
-    cred -= tstaff * 2000;
-}
+function PayRoll(){cred -= tstaff * 500;blip();}
 
 function VisGen() {
   if (glam >= 1 && glam <= 5) {
-    const randomIncrement = Math.floor(Math.random() * 6) + 1;
+    const randomIncrement = Math.floor(Math.random() * 6) + 2;
     vis += randomIncrement;
   } else if (glam >= 6 && glam <= 10) {
-    const randomIncrement = Math.floor(Math.random() * 10) + 10; 
+    const randomIncrement = Math.floor(Math.random() * 10) + 12; 
     vis += randomIncrement;
   } else if (glam > 11 && glam <= 15) {
-    const randomIncrement = Math.floor(Math.random() * 32) + 22;
+    const randomIncrement = Math.floor(Math.random() * 22) + 22;
     vis += randomIncrement;
   } else if (glam >= 16) {
-    const randomIncrement = Math.floor(Math.random() * 32) + 32;
+    const randomIncrement = Math.floor(Math.random() * 20) + 32;
     vis += randomIncrement;
   }
-  const randomInterval = Math.floor(Math.random() * (18000 - 10000 + 1)) + 10000;
+  const randomInterval = Math.floor(Math.random() * (12000 - 5000 + 1)) + 5000;
   setTimeout(VisGen, randomInterval);
 }
 
@@ -111,68 +114,63 @@ function VisLeave() {
       const randomIncrement = Math.floor(Math.random() * 8) + 8; 
       vis -= randomIncrement;
     } else if (glam >= 11 && glam <= 15) {
-      const randomIncrement = Math.floor(Math.random() * 30) + 20;
+      const randomIncrement = Math.floor(Math.random() * 20) + 20;
       vis -= randomIncrement;
     } else if (glam >= 16) {
-      const randomIncrement = Math.floor(Math.random() * 30) + 30;
+      const randomIncrement = Math.floor(Math.random() * 20) + 30;
       vis -= randomIncrement;
     } else if (glam < 0) {vis = Math.floor(Math.random() * 14) + 1;}
-  const randomInterval = Math.floor(Math.random() * (19000 - 11000 + 1)) + 11000;
+  const randomInterval = Math.floor(Math.random() * (16000 - 11000 + 1)) + 11000;
   setTimeout(VisLeave, randomInterval);
 }
 
 function StaffWork(){
-goods += log * 10;
-goods += mer * 50;
+goods += log * 5;
+goods += mer * 20;
 }
 
 function GoodsEcon(){
   if (goods > 0){
-  let multiplier = Math.floor(Math.random() * (1.4 - 0.05)) + 0.05;
+  let multiplier = Math.floor(Math.random() * (1.8 - 0.08)) + 0.05;
   let randCred = Math.floor(vis * multiplier);
-  cred += randCred;
+  cred += randCred + 100 + (100 * mer);
+  console.log(randCred);
   goods -= Math.floor(randCred * .5);}
   if (goods < 0) {goods = 0};
-  setTimeout(GoodsEcon, 10000);
+  setTimeout(GoodsEcon, 4000);
 }
 
 function FuelEcon(){
-  if (fuel > 0){
-  let fuelBuy = Math.floor(Math.random() * 4) - 1;
-  let fuelAmount = Math.floor(Math.random() * 4);
+  if (fuel > 0 && vis > 0){
+  let fuelBuy = Math.floor(Math.random() * 8) - 1;
+  let fuelAmount = Math.floor(Math.random() * 5);
   if (fuelBuy > 0 && fuel >= (fuelAmount * 10)){
   fuel -= Math.floor(fuelAmount * 10);
-  cred += Math.floor(fuelAmount * 250)}}
+  cred += Math.floor(fuelAmount * 350)}}
   if (fuel < 0) {fuel = 0;}
-  setTimeout(FuelEcon, 10000);
+  setTimeout(FuelEcon, 7000);
 }
 
-
 //New Hire Generator
-function AddNewh(){if (newh < 6 && tstaff < maxCap)newh++;setTimeout(AddNewh, hiringInterval)}
+function AddNewh(){if (newh < 3 && tstaff < maxCap)newh++;setTimeout(AddNewh, hiringInterval)}
 
 //Staff Assignment Buttons
-function AsgnAdm(){if (newh !== 0 && tstaff < maxCap){adm++;newh--;hiringInterval -= 2000;crime--;damage--;}}
-function AsgnSec(){if (newh !== 0 && tstaff < maxCap){sec++;newh--;crime -= 3;}}
-function AsgnMed(){if (newh !== 0 && tstaff < maxCap){med++;newh--;sick -= 3;glam++}}
-function AsgnLog(){if (newh !== 0 && tstaff < maxCap){log++;newh--;damage--;}}
-function AsgnMer(){if (newh !== 0 && tstaff < maxCap){mer++;newh--;glam++}}
-function AsgnMnt(){if (newh !== 0 && tstaff < maxCap){mnt++;newh--;damage -= 3;}}
+function AsgnAdm(){if (newh !== 0 && tstaff < maxCap){adm++;newh--;hiringInterval -= 5000;crime--;damage--;admSound();}}
+function AsgnSec(){if (newh !== 0 && tstaff < maxCap){sec++;newh--;crime -= 3;secSound();}}
+function AsgnMed(){if (newh !== 0 && tstaff < maxCap){med++;newh--;sick -= 3;glam++;medSound();}}
+function AsgnLog(){if (newh !== 0 && tstaff < maxCap){log++;newh--;damage--;logSound();}}
+function AsgnMer(){if (newh !== 0 && tstaff < maxCap){mer++;newh--;glam++;merSound();}}
+function AsgnMnt(){if (newh !== 0 && tstaff < maxCap){mnt++;newh--;damage -= 3;mntSound();}}
 
-function BuildHab(){if (cred >= 15000){{habs++;cred-= 15000;glam++;sick++}}}
-function BuildDock(){if (cred >= 30000){{docks++;cred-= 30000;glam += 3; crime +=3;sick++}}}
-function BuyFuel(){if (cred >= 1000){{fuel+= 100;cred-= 1000;}}}
-function BuyShip(){if (cred >= 50000){{ships++;cred-= 50000;glam += 5;damage += 3}}}
-
-
-
-
-
-
-
+function BuildHab(){if (cred >= 10000){{habs++;cred-= 10000;glam++;sick++;habSound();}}}
+function BuildLounge(){if (cred >= 6000){{loungeSound();cred-= 6000;glam+= 2;}}}
+function BuildDock(){if (cred >= 30000){{docks++;cred-= 30000;glam += 3; crime +=3;sick++;dockSound();}}}
+function BuyFuel(){if (cred >= -5000){{fuel+= 100;cred-= 1000;fuelSound();}}}
+function BuyShip(){if (cred >= 50000){{ships++;cred-= 50000;glam += 8;damage += 5;shipSound();}}}
 
 
 function Rename() {
+  blip();
   newName = document.getElementById("myInput").value;
   document.getElementById("title").innerHTML = newName + " Station"
   document.getElementById("myInput").value = "";

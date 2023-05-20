@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js"></script>
     <script src="badstuff.js"></script>
+    <script src="sound.js"></script>
     <link rel="stylesheet" href="style.css"></link>
     <link href='https://fonts.googleapis.com/css?family=MedievalSharp' rel='stylesheet'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,6 +17,7 @@
 </head>
 <body style="background-color: rgb(25, 24, 24);">
     <p id="title">The Station</p>
+    <p id="rating"></p>
     <div class="container">
         <p id="cd"></p>
         <p id="fl"></p>        
@@ -49,25 +51,26 @@
         <div class="dropdown">
           <button class="dropbtn">Assign New Staff ></button>
           <div class="dropdown-content">
-            <a href="#" onclick="AsgnAdm()">> Admin</a>
-            <a href="#" onclick="AsgnSec()">> Security</a>
-            <a href="#" onclick="AsgnMed()">> Medical</a>
-            <a href="#" onclick="AsgnLog()">> Logistics</a>
-            <a href="#" onclick="AsgnMer()">> Merchants</a>
-            <a href="#" onclick="AsgnMnt()">> Maint.</a>
+            <a href="#" onclick="AsgnAdm()" data-tooltip="Handles recruiting and increases overall efficiency of the station.">> Admin</a>
+            <a href="#" onclick="AsgnSec()"data-tooltip="Helps to maintain peace and enforce station policies.">> Security</a>
+            <a href="#" onclick="AsgnMed()"data-tooltip="Provides treatment for staff and visitors who become ill or injured.">> Medical</a>
+            <a href="#" onclick="AsgnLog()"data-tooltip="Increases efficiency for all operations on the station.">> Logistics</a>
+            <a href="#" onclick="AsgnMer()"data-tooltip="Acquires new goods and manages the sales division.">> Merchants</a>
+            <a href="#" onclick="AsgnMnt()"data-tooltip="Keeps all systems, services and ships in good working order.">> Maint.</a>
           </div>
         </div>
               
         <div class="buttons">
-          <button onclick="BuildHab()" data-tooltip="1 Hab (6 beds) - ᖬ15k">Build Hab</button>
-          <button onclick="BuildDock()" data-tooltip="ᖬ30k per Dock">Build Dock</button>
-          <button id="fuel" onclick="BuyFuel()" data-tooltip="ᖬ1k per 100 Fuel">Buy Fuel</button>
-          <button id="ship" onclick="BuyShip()" data-tooltip="ᖬ50k per Ship">Buy Ship</button>
+          <button onclick="BuildHab()" data-tooltip="ᖬ15k: +6 Staff Rooms">Build Hab</button>
+          <button onclick="BuildLounge();" data-tooltip="ᖬ6k: Attracts more Visitors">Build Lounge</button>
+          <button onclick="BuildDock()" data-tooltip="ᖬ30k: +100 Visitor Capacity">Build Dock</button>
+          <button id="fuel" onclick="BuyFuel()" data-tooltip="ᖬ1k: +100 Fuel">Buy Fuel</button>
+          <button id="ship" onclick="BuyShip()" data-tooltip="ᖬ50k: +1 Ship">Buy Ship</button>
       </div>
       
       </div>
 
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br><br><br><br><br><br>
 
       <div class="button-container2">
         <div class="dropdown2">

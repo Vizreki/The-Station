@@ -3,9 +3,6 @@
 // Like > if crime, do crime() if sick, do sick(), so forth, and then if crime && sick, do crime_sick(), and so forth.
 //BadChecker >>>> CrimeResolver / SickResolver / DamageResolver
 
-
-//Handles the crime, medical, and maintenance problems
-
 let genericMultiWarning = "Multiple departments are in need of personnel."
 
 let crimeAndSick = "Security and Medical are both reporting insufficient staff. Conditions are deteriorating."
