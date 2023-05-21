@@ -51,21 +51,27 @@
         <div class="dropdown">
           <button class="dropbtn">Assign New Staff ></button>
           <div class="dropdown-content">
-            <a href="#" onclick="AsgnAdm()" data-tooltip="Handles recruiting and increases overall efficiency of the station.">> Admin</a>
-            <a href="#" onclick="AsgnSec()"data-tooltip="Helps to maintain peace and enforce station policies.">> Security</a>
-            <a href="#" onclick="AsgnMed()"data-tooltip="Provides treatment for staff and visitors who become ill or injured.">> Medical</a>
-            <a href="#" onclick="AsgnLog()"data-tooltip="Increases efficiency for all operations on the station.">> Logistics</a>
-            <a href="#" onclick="AsgnMer()"data-tooltip="Acquires new goods and manages the sales division.">> Merchants</a>
-            <a href="#" onclick="AsgnMnt()"data-tooltip="Keeps all systems, services and ships in good working order.">> Maint.</a>
+            <a href="#" onclick="AsgnAdm()" onmouseover="document.addEventListener('keydown', fireAdm)" onmouseout="document.removeEventListener('keydown', fireAdm)" data-tooltip="Improves recruiting and increases overall efficiency of the station.">> Admin</a>
+
+            <a href="#" onclick="AsgnSec()"onmouseover="document.addEventListener('keydown', fireSec)" onmouseout="document.removeEventListener('keydown', fireSec)"data-tooltip="Helps maintain peace and enforce station policies.">> Security</a>
+
+            <a href="#" onclick="AsgnMed()"onmouseover="document.addEventListener('keydown', fireMed)" onmouseout="document.removeEventListener('keydown', fireMed)"data-tooltip="Provides treatment for staff and visitors who become ill or injured.">> Medical</a>
+
+            <a href="#" onclick="AsgnLog()"onmouseover="document.addEventListener('keydown', fireLog)" onmouseout="document.removeEventListener('keydown', fireLog)"data-tooltip="Increases efficiency for all operations on the station.">> Logistics</a>
+
+            <a href="#" onclick="AsgnMer()"onmouseover="document.addEventListener('keydown', fireMer)" onmouseout="document.removeEventListener('keydown', fireMer)"data-tooltip="Acquires new goods and manages the sales division.">> Merchants</a>
+
+            <a href="#" onclick="AsgnMnt()"onmouseover="document.addEventListener('keydown', fireMnt)" onmouseout="document.removeEventListener('keydown', fireMnt)"data-tooltip="Keeps all systems, services and ships in good working order.">> Maint.</a>
+
           </div>
         </div>
               
         <div class="buttons">
-          <button onclick="BuildHab()" data-tooltip="ᖬ15k: +6 Staff Rooms">Build Hab</button>
-          <button onclick="BuildLounge();" data-tooltip="ᖬ6k: Attracts more Visitors">Build Lounge</button>
-          <button onclick="BuildDock()" data-tooltip="ᖬ30k: +100 Visitor Capacity">Build Dock</button>
+          <button onclick="BuildHab()" data-tooltip="ᖬ10k: +6 Staff Rooms">Build Hab</button>
+          <button onclick="BuildLounge();" data-tooltip="ᖬ5k: Attracts more Visitors">Build Lounge</button>
+          <button onclick="BuildDock()" data-tooltip="ᖬ15k: +300 Visitor Capacity">Build Dock</button>
           <button id="fuel" onclick="BuyFuel()" data-tooltip="ᖬ1k: +100 Fuel">Buy Fuel</button>
-          <button id="ship" onclick="BuyShip()" data-tooltip="ᖬ50k: +1 Ship">Buy Ship</button>
+          <button id="ship" onclick="BuyShip()" data-tooltip="ᖬ20k: Increases Rating & Income">Buy Ship</button>
       </div>
       
       </div>
@@ -82,7 +88,20 @@
       </div>
       <br><br>
 
-<p id="note"><i>Refresh page to start a new game. For further guidance, see the browser console.</i></p>
-           
+<p id="help"><i>Refresh page to start a new game. For game details, see the browser console. For general guidance >>    </i></p>
+     
+<div class="helpbutton">
+  <button class="helphover">Guide</button>
+  <span class="helptip" contenteditable="">Welcome to the sector! You have recently acquired an old refueling station and installed a small shop. You are currently alone, but you should hire staff and manage the station wisely so it grows over time.
+    <br><br>
+    Goods and fuel purchases happen automatically while you have visitors. Merchants will restock your stores, but you must order fuel yourself. More visitors will mean more transactions. The various staff members have different effects on the economy and station operations.
+    <br><br>
+    All staff members cost ᖬ500 a week. If a department is lacking, you will be informed. Staff can be laid off by opening the dropdown and pressing the 'delete' key while hovering over that position.
+    <br><br>
+    Once the station becomes popular, you will need to address crime, maintenenace and medical issues. It's okay to be proactive, but don't hire staff you can't afford!
+    <br><br>
+    If you are ᖬ20k in debt, you lose. Good luck!
+  </span>
+
 </body>
 </html>

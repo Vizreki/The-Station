@@ -1,4 +1,4 @@
-function music() {let audio = new Audio("Sounds/space.wav");audio.play();setTimeout(music, 145000)}
+function music() {let audio = new Audio("Sounds/space.wav");audio.play();setTimeout(music, 140000)}
 
 function blip() {let audio = new Audio("Sounds/blip.wav");audio.play();}
 
@@ -26,4 +26,4 @@ function alarm() {let audio = new Audio("Sounds/longalarm.wav");audio.play();}
 
 function loungeSound() {let audio = new Audio("Sounds/ice.wav");audio.play();}
 
-function s() {let audio = new Audio("");audio.play();}
+function fired() {let audio = new Audio("Sounds/fired.wav");audio.play();}
