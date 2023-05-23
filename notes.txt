@@ -1,6 +1,0 @@
-win state with message (# of credits?)
-loss state with message
-
-status messages for crime, sickness or maintenance, plus logic for this
-
-check statuses every 30 seconds or so so buying new things or adding people doesn't immediately change status and it feels gradual
