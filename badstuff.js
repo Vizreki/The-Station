@@ -103,8 +103,10 @@ function BadChecker(){
             }
 
     else if (crime === 1 || sick  === 1 || damage === 1){
-        {document.getElementById("status").innerHTML = genericwarning;}
-    } else document.getElementById("status").innerHTML = allgood[Math.floor(Math.random() * allgood.length)]        
+        {document.getElementById("status").innerHTML = genericwarning;
+    } document.getElementById("status").style.color = "rgb(255, 255, 255)";
+    } else document.getElementById("status").innerHTML = allgood[Math.floor(Math.random() * allgood.length)]
+    document.getElementById("status").style.color = "rgb(255, 255, 255)";        
     }
 
 

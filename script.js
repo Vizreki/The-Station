@@ -64,6 +64,7 @@ function onStart(){
 function Intervals(){
   setInterval(DisplayNums, 100)
   setInterval(BadChecker, 10000)
+  setInterval(Population, 15000)
 }
 
 function badTracker(){
@@ -173,7 +174,7 @@ function VisLeave() {
 
 function StaffWork(){
 goods += log * 5;
-goods += mer * Math.floor(vis * .25);
+goods += mer * Math.floor(vis * .3);
 cred += ships * (vis * 4)
 if (goods > 0){cred += vis * (mer * 15)}
 setTimeout(StaffWork, 14000)
@@ -206,7 +207,6 @@ function AddNewh(){if (newh < 3 && tstaff < maxcap)newh++;
 
 function Population(){if (vis > 50 && pop < maxres - 4) {pop+= Math.floor(Math.random() * 4) + 1;}
     cred += 350 * pop;
-    setTimeout(Population, 20000)
 }
 
 //Staff Assignment Buttons
