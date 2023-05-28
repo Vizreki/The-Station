@@ -1,12 +1,9 @@
 
-//Need a function to examine all 3 bad stats, then choose the correct function to handle the ones that are bad.
-// Like > if crime, do crime() if sick, do sick(), so forth, and then if crime && sick, do crime_sick(), and so forth.
-//BadChecker >>>> CrimeResolver / SickResolver / DamageResolver
 
 let allgood = [
     "Report: All systems operational.",
     "Report: Everything is running smoothly.",
-    "Report: Visitors and staff are enjoying the station.",]
+    "Report: Visitors and staff seem content.",]
 
 let genericwarning = "Report: One or more departments could use additional staff."
 
@@ -28,7 +25,7 @@ let crimelvl3 = [
 let sicklvl1 = [
     "Report: There are very long lines at the clinic.",
     "Report: The clinic is requesting additional staff.",
-    "Report: The Medical Director has requested another doctor to open a new clinic.",]
+    "Report: Medical is reporting they are short on staff.",]
 
 let sicklvl2 = [
     "Report: Quite a few people are sick and cannot get treatment. Hire Medical staff.",
@@ -54,51 +51,40 @@ let damagelvl3 = [
     "Report: Many services are offline and Dock A is barely functional. Increase maintenance immediately.",
     "Report: The station is at risk of significant damage or destruction due to multiple hazards.",
     "Report: There are multiple unsafe conditions putting visitors and staff at risk. Increase maintenance immediately."]
+ 
   
-function Theft1(){stolen = vis * Math.floor(Math.random() * 8) + 4;cred -= stolen;}
-function Theft2(){stolen = vis * Math.floor(Math.random() * 10) + 5;cred -= stolen;}
-function Theft3(){stolen = vis * Math.floor(Math.random() * 12) + 10;cred -= stolen;}
-
-function Sickness1(){vis -= Math.floor(vis * .2);}
-function Sickness2(){vis -= Math.floor(vis * .4);}
-function Sickness3(){vis -= Math.floor(vis * .6);}
-
-function Damages1(){vis -= Math.floor(vis * .1);glam--;}
-function Damages2(){vis -= Math.floor(vis * .25);glam--;}
-function Damages3(){vis -= Math.floor(vis * .5);glam-= 2;}
-
 function BadChecker(){
     if (crime > 1 || sick  > 1 || damage >1){
         let worst = Math.max(crime, sick, damage);
         if (worst === crime){
             if (crime >= 2 && crime <= 3){
-            document.getElementById("status").innerHTML = crimelvl1[Math.floor(Math.random() * crimelvl1.length)];Theft1();
+            document.getElementById("status").innerHTML = crimelvl1[Math.floor(Math.random() * crimelvl1.length)];
             } else if (crime >= 4 && crime <= 7){
                 document.getElementById("status").innerHTML = crimelvl2[Math.floor(Math.random() * crimelvl2.length)];
-                document.getElementById("status").style.color = "rgb(255, 255, 0)";Theft2();
+                document.getElementById("status").style.color = "rgb(255, 255, 0)";
             } else if (crime >= 8){
                 document.getElementById("status").innerHTML = crimelvl3[Math.floor(Math.random() * crimelvl3.length)];
-                document.getElementById("status").style.color = "rgb(255, 0, 0)";Theft3();}}
+                document.getElementById("status").style.color = "rgb(255, 0, 0)";}}
         
         if (worst === sick){
             if (sick >= 2 && sick <= 3){
-            document.getElementById("status").innerHTML = sicklvl1[Math.floor(Math.random() * sicklvl1.length)];Sickness1();
+            document.getElementById("status").innerHTML = sicklvl1[Math.floor(Math.random() * sicklvl1.length)];
             } else if (sick >= 4 && sick <= 7){
                 document.getElementById("status").innerHTML = sicklvl2[Math.floor(Math.random() * sicklvl2.length)];
-                document.getElementById("status").style.color = "rgb(255, 255, 0)";Sickness2();
+                document.getElementById("status").style.color = "rgb(255, 255, 0)";
             } else if (sick >= 8){
                 document.getElementById("status").innerHTML = sicklvl3[Math.floor(Math.random() * crimelvl3.length)];
-                document.getElementById("status").style.color = "rgb(255, 0, 0)";Sickness3();}}
+                document.getElementById("status").style.color = "rgb(255, 0, 0)";}}
                 
         if (worst === damage){
             if (damage >= 2 && damage <= 3){
-            document.getElementById("status").innerHTML = damagelvl1[Math.floor(Math.random() * damagelvl1.length)];Damages1();
+            document.getElementById("status").innerHTML = damagelvl1[Math.floor(Math.random() * damagelvl1.length)];
             } else if (damage >= 4 && damage <= 7){
                 document.getElementById("status").innerHTML = damagelvl2[Math.floor(Math.random() * damagelvl2.length)];
-                document.getElementById("status").style.color = "rgb(255, 255, 0)";Damages2();
+                document.getElementById("status").style.color = "rgb(255, 255, 0)";
             } else if (damage >= 8){
                 document.getElementById("status").innerHTML = damagelvl3[Math.floor(Math.random() * damagelvl3.length)];
-                document.getElementById("status").style.color = "rgb(255, 0, 0)";Damages3();}}
+                document.getElementById("status").style.color = "rgb(255, 0, 0)";}}
 
             }
 
@@ -108,6 +94,3 @@ function BadChecker(){
     } else document.getElementById("status").innerHTML = allgood[Math.floor(Math.random() * allgood.length)]
     document.getElementById("status").style.color = "rgb(255, 255, 255)";        
     }
-
-
-    
